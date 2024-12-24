@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" >
+    <style>
+      .container{max-width:1000px;}
+      .padding1{    padding: 20px;
+        background: #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;}
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+  <ul class="nav nav-underline">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true" href="#">Disabled</a>
+    </li>
+  </ul>
+  </div>
+
+
+<div class="container">
+  <div class="padding1">
+  <form method="post" action="/homepage">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">phone number</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="phone_number">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">name</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+</div>
+<div class="container">
+<div class="table1">
+    <table class='table'>
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for item in range(users | length) %}
+          <tr>
+            <th scope="row">{{ start+item+1 }}</th>
+            <td>{{users[item].name}}</td>
+            <td>{{users[item].email}}</td>
+            <td>{{users[item].phone_number}}</td>
+           <td> <a href="/edit_file/{{ users[item].id }}"><i  style='margin-right:20px;' class="fas fa-edit"></i></a>  <a href='/delete/{{users[item].id}}'><i class="fas fa-trash-alt"></i></a></div></td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      </div>
+  </div>
+<div class="container">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+
+      {% if total_pages%}
+      {% for count in range(1,total_pages+1) %}
+        <li class="page-item"><a class="page-link" href="/pagination/{{count}}">{{ count }}</a></li>
+      {% endfor %}
+      {% endif %}
+
+    </ul>
+  </nav>
+</div>
+</body>
+
+
+</html>

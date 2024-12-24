@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Form</title>
+   <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.upload-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.upload-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Custom File Input */
+label.custom-file-upload {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+label.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+label.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* Submit Button */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+   </style>
+</head>
+<body>
+    <div class="upload-container">
+        <form action="/items_data" method="post">
+            <h2>Upload Your Image</h2>
+            <label for="file-upload" class="custom-file-upload">
+                <input type="file" id="file-upload" name="image">
+                Choose an Image
+            </label>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
