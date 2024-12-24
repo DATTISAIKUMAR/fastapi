@@ -2,5 +2,6 @@ fastapi[all]~= 0.115.6
 uvicorn~=0.34.0
 pydantic ~=2.10.4
 mongoengine~=0.29.1
+pymongo~=4.10.1
 
 
